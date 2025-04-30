@@ -7,7 +7,10 @@ from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, Wor
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'http://localhost:8000/'
+    # Use the Codespace URL for API endpoints, fallback to localhost
+    codespace_url = 'https://cuddly-eureka-69rj99vvgqpf5r5j-8000.app.github.dev/'
+    localhost_url = 'http://localhost:8000/'
+    base_url = codespace_url if 'cuddly-eureka-69rj99vvgqpf5r5j-8000.app.github.dev' in request.get_host() else localhost_url
     return Response({
         'users': base_url + 'api/users/?format=api',
         'teams': base_url + 'api/teams/?format=api',

@@ -4,7 +4,7 @@ function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetch('https://cuddly-eureka-69rj99vvgqpf5r5j-8000.app.github.dev/api/activity/')
+    fetch('https://cuddly-eureka-69rj99vvgqpf5r5j-8000.app.github.dev/api/activities/')
       .then(res => res.json())
       .then(data => setActivities(data))
       .catch(() => setActivities([]));
